@@ -1,0 +1,13 @@
+/Users/jnm/code/rust/learn-rust/tokio-chat/tokio-chat/target/rls/debug/deps/quote-581cd264f13605b3.rmeta: /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/Users/jnm/code/rust/learn-rust/tokio-chat/tokio-chat/target/rls/debug/deps/libquote-581cd264f13605b3.rlib: /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/Users/jnm/code/rust/learn-rust/tokio-chat/tokio-chat/target/rls/debug/deps/quote-581cd264f13605b3.d: /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs /Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs
+
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/lib.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ext.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/format.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/ident_fragment.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/to_tokens.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/runtime.rs:
+/Users/jnm/.cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.10/src/spanned.rs:
