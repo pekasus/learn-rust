@@ -13,5 +13,8 @@ async fn main() {
 
     let bytes_read = socket.read(&mut buffer).await.unwrap();
 
+    println!("{}", &bytes_read);
+    println!("{:?}", &buffer);
+
     socket.write_all(&buffer[..bytes_read]).await.unwrap();
 }
