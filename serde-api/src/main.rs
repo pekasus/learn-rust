@@ -32,6 +32,13 @@ async fn main() -> Result<(), Error> {
     println!("{:?}", &result.data);
     println!("{:?}", &result.data[0]);
 
+    for i in &result.data {
+        println!("{}", i);
+    }
+
+    if result.success {
+        println!("Success!")
+    }
     
     Ok(())
 }
