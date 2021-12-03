@@ -11,6 +11,8 @@ use std::collections::HashMap;
 
 #[derive(Deserialize, Debug)]
 struct Json {
+    #[serde(rename = "type")]
+    type_: String,
     length: u32,
     data: Vec<u32>,
     success: bool,
@@ -19,10 +21,20 @@ struct Json {
 #[tokio::main]
 async fn main() -> Result<(), Error> {
 
+    // We want to use reqwest::Client to create a reusable Client which is faster.
+    let client = reqwest::Client::new();
+
     // can change the length={value up to 1024 in request_url}
     let request_url = "https://qrng.anu.edu.au/API/jsonI.php?length=15&type=uint16&size=12";
     println!("{}", &request_url);
-    let response = reqwest::get(request_url).await?;
+
+    // making a call this way creates a new Client each get call
+    // let response = reqwest::get(request_url).await?; 
+
+    // This uses a reusable Client
+    let response = client.get(request_url).send().await?;
+
+// Explore using ClientBuilder, potentially with client.request(...)
 
     println!("Status: {}", &response.status());
     // println!("Status: {:#?}", &response.text().await?);
