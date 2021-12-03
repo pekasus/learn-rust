@@ -7,6 +7,9 @@ use tokio;
 use reqwest::Error;
 use std::collections::HashMap;
 
+const SIZE_RESPONSE: u32 = 10;
+const CONCURRENT_REQUESTS: u32 = 2;
+
 // let api_call = "https://qrng.anu.edu.au/API/jsonI.php?length=15&type=uint16&size=12";
 
 #[derive(Deserialize, Debug)]
@@ -25,7 +28,8 @@ async fn main() -> Result<(), Error> {
     let client = reqwest::Client::new();
 
     // can change the length={value up to 1024 in request_url}
-    let request_url = "https://qrng.anu.edu.au/API/jsonI.php?length=15&type=uint16&size=12";
+    let size_response = 10;
+    let request_url = format!("https://qrng.anu.edu.au/API/jsonI.php?length={}&type=uint16&size=12", SIZE_RESPONSE);
     println!("{}", &request_url);
 
     // making a call this way creates a new Client each get call
