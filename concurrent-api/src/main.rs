@@ -54,7 +54,7 @@ impl<T: Send + Copy> ApiQueue<T> {
         if let Ok(mut queue) = self.inner.lock() {
             // As above, we can use the MutexGuard<VecDeque<T>> to access
             // the internal VecDeque.
-            queue.push_back(work);
+            queue.push_back(random_number);
 
             // Now return the length of the queue.
             queue.len()
@@ -96,5 +96,5 @@ fn new_fillflag(initial_state: bool) -> (FillFlag) {
 
 
 fn main() {
-    println!("Hello, world!");
+    let tank = ApiQueue::new();
 }
