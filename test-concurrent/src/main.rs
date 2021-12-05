@@ -8,25 +8,39 @@ use std::any::type_name;
 
 const CONCURRENT_REQUESTS: usize = 2;
 
-// fn type_of(_: T) -> &'static str {
-//     type_name::()
-// }
+#[derive(Debug)]
+struct Tank {
+    numbers: VecDeque<u32>, // add Mutex
+    len: u32,
+}
+
+impl Tank {
+    fn new() -> Self {
+        Tank {
+            numbers: VecDeque::new(), // add Mutex
+            len: 0,
+        }
+    }
+
+    fn push_back(self, x:u32) {
+        self.numbers.push_back(x);
+    }
+}
 
 #[tokio::main]
 async fn main() -> Result<(), ()> {  // -> Result<(), Box<dyn Error>> {
 
+    // let client = Client::new();
 
-    let client = Client::new();
-    let mut tank = Mutex::new(VecDeque::new());
+    let mut tank = Tank::new(); //Mutex::new(VecDeque::new());
     // let mut tank: VecDeque<u32> = VecDeque::with_capacity(10);
-    // tank.push_back(2);
-    tank.push_back(3);
+    tank.push_back(2);
+    // tank.push_back(3);
 
 
 
 
-    // println!("{:?}", type_of($tank));
-    println!("{:?}",tank);
+    println!("{:?}", tank);
 
     Ok(())
 }
