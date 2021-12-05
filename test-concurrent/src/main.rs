@@ -4,19 +4,29 @@ use tokio; // 0.2.21, features = ["macros"]
 use std::collections::VecDeque;
 use std::sync::Mutex;
 
+use std::any::type_name;
+
 const CONCURRENT_REQUESTS: usize = 2;
 
+// fn type_of(_: T) -> &'static str {
+//     type_name::()
+// }
+
 #[tokio::main]
-async fn main() -> Result<(), ()> {//Box<dyn Error>> {
+async fn main() -> Result<(), ()> {  // -> Result<(), Box<dyn Error>> {
 
 
     let client = Client::new();
-    // let tank: Mutex<VecDeque<u32>> = Mutex::new(VecDeque::with_capacity(10));
-    let mut tank: VecDeque<u32> = VecDeque::with_capacity(10);
-    tank.push_back(2);
+    let mut tank = Mutex::new(VecDeque::new());
+    // let mut tank: VecDeque<u32> = VecDeque::with_capacity(10);
+    // tank.push_back(2);
     tank.push_back(3);
 
-    println!("{:?}", tank);
+
+
+
+    // println!("{:?}", type_of($tank));
+    println!("{:?}",tank);
 
     Ok(())
 }
