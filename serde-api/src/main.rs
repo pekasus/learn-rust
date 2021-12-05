@@ -20,14 +20,6 @@ struct Json {
     success: bool,
 }
 
-
-
-
-
-
-
-
-
 #[tokio::main]
 async fn main() -> Result<(), Error> {
 
