@@ -1,4 +1,4 @@
-use std::sync::Mutex;
+use std::sync::Mutex; // USE parking_lot as per StackOverflow suggestion
 use std::collections::VecDeque;
 use std::sync::Arc;
 
