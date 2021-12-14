@@ -19,11 +19,12 @@ struct Json {
     success: bool,
 }
 
-async fn get_random_number() -> Result<(), reqwest::Error> {  //vd: <Mutex<VecDeque>>)
-    let size_response = 1;
-    let request_url = format!("https://qrng.anu.edu.au/API/jsonI.php?length={}&type=uint16&size=12", size_response);
-    let client = Client::new();
-    let response = client.clone().get(&request_url).send().await?;
+async fn get_random_number(reusable_client: Client, url: &str) -> Result<(), reqwest::Error> {  //vd: <Mutex<VecDeque>>)
+    // let size_response = 1;
+    // let request_url = format!("https://qrng.anu.edu.au/API/jsonI.php?length={}&type=uint16&size=12", size_response);
+    // let client = Client::new();
+    // let response = client.clone().get(&request_url).send().await?;
+    let response = reusable_client.get(url).send().await?;
     let result = response.json::<Json>().await?;
     println!("{:?}", &result);
     // let mut tank = tank.lock().unwrap().push_back(result.data[0]);
@@ -33,10 +34,14 @@ async fn get_random_number() -> Result<(), reqwest::Error> {  //vd: <Mutex<VecDe
 #[tokio::main]
 async fn main()  -> Result<(), reqwest::Error> {  // -> Result<(), Box<dyn Error>> {
 
-    // let client = Client::new();
-    // let size_response = 1;
-    // let request_url = format!("https://qrng.anu.edu.au/API/jsonI.php?length={}&type=uint16&size=12", size_response);
+    let client = Client::new();
+    let size_response = 1;
+    let request_url = format!("https://qrng.anu.edu.au/API/jsonI.php?length={}&type=uint16&size=12", size_response);
 
+    for _i in 0..5 {
+        get_random_number(client.clone(), &request_url).await?;
+    }
+    
     // let mut tank = Mutex::new(VecDeque::new());
     // let mut tank = Mutex::new(VecDeque::with_capacity(10));
     
@@ -50,8 +55,8 @@ async fn main()  -> Result<(), reqwest::Error> {  // -> Result<(), Box<dyn Error
     // println!("{:?}", tank);
     
 
-    tokio::join!(get_random_number(),get_random_number(),get_random_number(),get_random_number(),get_random_number()
-    ,get_random_number(),get_random_number(),get_random_number(),get_random_number(),get_random_number());
+    // tokio::join!(get_random_number(),get_random_number(),get_random_number(),get_random_number(),get_random_number()
+    // ,get_random_number(),get_random_number(),get_random_number(),get_random_number(),get_random_number());
     Ok(())
 }
 
