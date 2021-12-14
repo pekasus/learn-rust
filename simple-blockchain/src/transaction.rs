@@ -1,4 +1,6 @@
 use super::*;
+use std::collections::HashSet;
+// use std::hash::Hash;
 
 pub struct Output {
     pub to_addr: Address,
@@ -34,7 +36,25 @@ impl Transaction {
             .iter()
             .map(|output| output.value)
             .sum()
-    }
+    };
+
+    pub fn input_hashes(&self) -> HashSet<Hash> {
+        self.inputs
+            .iter()
+            .map(|input| input.hash())
+            .collect::<HashSet<Hash>>()
+    };
+
+    pub fn output_hashes(&self) -> HashSet<Hash> {
+        self.outputs
+            .iter()
+            .map(|output| output.hash())
+            .collect::<HashSet<Hash>>()
+    };
+
+    pub fn is_coinbase(&self) -> bool {
+        self.inputs.len() == 0
+    };
 }
 
 impl Hashable for Transaction {
@@ -49,7 +69,7 @@ impl Hashable for Transaction {
         );
 
         bytes.extend(
-            self.output
+            self.outputs
                 .iter()
                 .flat_map(|output| output.bytes())
                 .collect::<Vec<u8>>()
