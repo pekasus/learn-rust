@@ -1,3 +1,5 @@
+use super::*;
+
 pub trait Hashable {
     fn bytes(&self) -> Vec<u8>;
 
