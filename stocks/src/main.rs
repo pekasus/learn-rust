@@ -6,7 +6,9 @@ extern crate serde;
 extern crate serde_json;
 
 use dotenv::dotenv;
+use serde_json::Value;
 use std::env;
+use std::process;
 
 // #[derive(Deserialize, Debug)]
 // struct Json {
@@ -28,13 +30,6 @@ use std::env;
 async fn main() -> Result<(), Error> {
     dotenv().expect(".env file not found");
     let api_key = env::var("ALPHA").expect("$ALPHA is not set");
-    // let api_key = match env::var("ALPHA") {
-    //     Ok(k) => k,
-    //     Err(err) => {
-    //         println!("{}", err);
-    //         process::exit(1);
-    //     }
-    // };
     println!("{:?}", api_key);
 
     let url = format!(
@@ -46,8 +41,13 @@ async fn main() -> Result<(), Error> {
 
     println!("Status: {}", &response.status());
     let json_text = response.text().await?;
-    // let json_ser = serde_json::from_str(json_text)?;
-    // println!("{:?}", json_ser);
+    let json_ser_ok = serde_json::from_str(&json_text);
+    if !json_ser_ok.is_ok() {
+        panic!("Something wrong with Json deserialize.")
+    }
+    let json_ser: Value = json_ser_ok.unwrap();
+
+    println!("{:?}", json_ser["Global Quote"]);
     // let result = &response.json::<Json>().await?;
     // println!("{:?}", &result);
     // println!("{:?}", &result.data);
