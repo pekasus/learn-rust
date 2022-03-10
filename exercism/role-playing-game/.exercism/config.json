@@ -1,0 +1,21 @@
+{
+  "blurb": "Learn about the `Option` enum by creating a minimal role-playing game",
+  "authors": [
+    "seanchen1991",
+    "coriolinus"
+  ],
+  "contributors": [
+    "PaulT89"
+  ],
+  "files": {
+    "solution": [
+      "src/lib.rs"
+    ],
+    "test": [
+      "tests/role-playing-game.rs"
+    ],
+    "exemplar": [
+      ".meta/exemplar.rs"
+    ]
+  }
+}
