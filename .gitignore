@@ -3,3 +3,8 @@
 debug/
 target/
 input.txt
+.exercism/
+/exercism/*/HELP.md
+/exercism/*/README.md
+/exercism/*/tests
+Cargo.lock
