@@ -52,11 +52,8 @@ impl Allergies {
     pub fn allergies(&self) -> Vec<Allergen> {
         ALLERGENS
             .iter()
-            .fold(Vec::<Allergen>::new(), |mut vec, &allergen| {
-                if self.is_allergic_to(&allergen) {
-                    vec.push(allergen);
-                }
-                vec
-            })
+            .filter(|allergen| self.is_allergic_to(allergen))
+            .cloned()
+            .collect()
     }
 }
